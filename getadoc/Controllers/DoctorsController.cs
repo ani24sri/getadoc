@@ -11,7 +11,6 @@ using getadoc.Models.DbContexts;
 
 namespace getadoc.Controllers
 {   
-    [Authorize(Roles ="Doctors")]
     public class DoctorsController : Controller
     {
         private DoctorsDbContext db = new DoctorsDbContext();
@@ -20,6 +19,13 @@ namespace getadoc.Controllers
         public ActionResult Index()
         {
             return View(db.Doctors.ToList());
+        }
+
+        // GET: Patients
+
+        public ActionResult viewPatients()
+        {
+            return View(db.Patients.ToList());
         }
 
         // GET: Doctors/Details/5

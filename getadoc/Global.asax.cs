@@ -1,4 +1,4 @@
-﻿using getadoc.Models;
+﻿using getadoc.Models.DbContexts;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -18,6 +18,7 @@ namespace getadoc
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            Database.SetInitializer<DoctorsDbContext>(new DropCreateDatabaseIfModelChanges<DoctorsDbContext>());
         }
     }
 }

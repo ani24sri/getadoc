@@ -1,45 +1,22 @@
-﻿@model IEnumerable<getadoc.Models.Doctors>
-
+﻿
 @{
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Welcome @User.Identity.Name</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.speciality)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.phoneno)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.speciality)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.phoneno)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.id })
-        </td>
-    </tr>
-}
-
-</table>
+<div class="container-fluid">
+    <a href="~/Doctors/Create" class="btn btn-default btn-group-lg" >
+        @Html.Partial("_doctorProfile")
+    </a>
+</div>
+<br/>
+<div class="container">
+    <div class="form-group">
+        <div class="body-content">
+                @Html.ActionLink("View Patients", actionName:"viewPatients",controllerName:"Doctors",routeValues:null,htmlAttributes:new { @class = "btn btn-primary navbar text-center" })
+                @Html.ActionLink("Appointments", actionName: "Index", controllerName: "Patients", routeValues: null, htmlAttributes: new { @class = "btn btn-primary navbar text-center" })
+                @Html.ActionLink("Diseases and Stuff", actionName: "Index", controllerName: "Patients", routeValues: null, htmlAttributes: new { @class = "btn btn-primary navbar text-center" })
+        </div>
+    </div>
+</div>
