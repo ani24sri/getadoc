@@ -16,7 +16,7 @@
         <div class="body-content">
                 @Html.ActionLink("View Patients", actionName:"viewPatients",controllerName:"Doctors",routeValues:null,htmlAttributes:new { @class = "btn btn-primary navbar text-center" })
                 @Html.ActionLink("Appointments", actionName: "Index", controllerName: "Patients", routeValues: null, htmlAttributes: new { @class = "btn btn-primary navbar text-center" })
-                @Html.ActionLink("Diseases and Stuff", actionName: "Index", controllerName: "Patients", routeValues: null, htmlAttributes: new { @class = "btn btn-primary navbar text-center" })
+                @Html.ActionLink("Diseases and Stuff", actionName: "viewDiseases", controllerName: "Doctors", routeValues: null, htmlAttributes: new { @class = "btn btn-primary navbar text-center", @target = "_blank"})
         </div>
     </div>
 </div>

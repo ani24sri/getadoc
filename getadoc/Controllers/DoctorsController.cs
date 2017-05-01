@@ -13,20 +13,99 @@ namespace getadoc.Controllers
 {   
     public class DoctorsController : Controller
     {
-        private DoctorsDbContext db = new DoctorsDbContext();
+        private DataDbContext db = new DataDbContext();
 
         // GET: Doctors
         public ActionResult Index()
         {
             return View(db.Doctors.ToList());
         }
-
+#region outeractions
         // GET: Patients
 
         public ActionResult viewPatients()
         {
             return View(db.Patients.ToList());
         }
+        
+        // GET: Diseases
+        public ActionResult viewDiseases()
+        {
+            return View(db.Diseases.ToList());
+        }
+
+       // GET: New Disease
+        public ActionResult addDiseases()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult addDiseases([Bind(Include = "id,name,symptom1,symptom2,symptom3,symptom4")]diseaseData data)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Diseases.Add(data);
+                db.SaveChanges();
+                return RedirectToAction("viewDiseases"); 
+            }
+            return View(data);
+        }
+        // GET : Doctors/edit/2
+        public ActionResult editDisease(int? id)
+        {
+            if(id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            diseaseData disease = db.Diseases.Find(id);
+            if (disease == null)
+            {
+                return HttpNotFound(); 
+            }
+            return View(disease);
+        }
+
+        // POST
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult editDisease([Bind(Include = "id,name,speciality,phoneno")] diseaseData disease)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(disease).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("viewDiseases");
+            }
+            return View(disease);
+        }
+        // GET: Doctors/deleteDisease/5
+        public ActionResult deleteDisease(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            diseaseData doctors = db.Diseases.Find(id);
+            if (doctors == null)
+            {
+                return HttpNotFound();
+            }
+            return View(doctors);
+        }
+
+        // POST: Doctors/deleteDisease/5
+        [HttpPost, ActionName("deleteDisease")]
+        [ValidateAntiForgeryToken]
+        public ActionResult deleteDisease(int id)
+        {
+            diseaseData doctors = db.Diseases.Find(id);
+            db.Diseases.Remove(doctors);
+            db.SaveChanges();
+            return RedirectToAction("viewDiseases");
+        }
+
+        #endregion
+
 
         // GET: Doctors/Details/5
         public ActionResult Details(int? id)

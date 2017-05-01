@@ -13,12 +13,28 @@ namespace getadoc.Controllers
 {
     public class PatientsController : Controller
     {
-        private DoctorsDbContext db = new DoctorsDbContext();
+        private DataDbContext db = new DataDbContext();
 
         // GET: Patients
         public ActionResult Index()
         {
             return View(db.Patients.ToList());
+        }
+        [HttpGet]
+        public ActionResult Appointments()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Appointments([Bind(Include = "id,patientNo,appDate,reason")]Appointments appointments)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Appointments.Add(appointments);
+                db.SaveChanges();
+                return View(appointments); 
+            }
+            return View(appointments);
         }
 
         // GET: Patients/Details/5
@@ -47,7 +63,7 @@ namespace getadoc.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id,name")] Patients patients)
+        public ActionResult Create([Bind(Include = "id,name,paitientNo,symptoms")] Patients patients)
         {
             if (ModelState.IsValid)
             {
@@ -79,7 +95,7 @@ namespace getadoc.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id,name")] Patients patients)
+        public ActionResult Edit([Bind(Include = "id,name,paitientNo,symptoms")] Patients patients)
         {
             if (ModelState.IsValid)
             {

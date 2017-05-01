@@ -1,0 +1,64 @@
+﻿@model getadoc.Models.diseaseData
+
+@{
+    ViewBag.Title = "deleteDisease";
+}
+
+<h2>deleteDisease</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>diseaseData</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.symptom1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.symptom1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.symptom2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.symptom2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.symptom3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.symptom3)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.symptom4)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.symptom4)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "viewDiseases")
+        </div>
+    }
+</div>

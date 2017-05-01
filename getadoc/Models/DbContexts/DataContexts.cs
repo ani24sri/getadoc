@@ -10,14 +10,16 @@ using Microsoft.AspNet.Identity;
 namespace getadoc.Models.DbContexts
 {
    
-    public class DoctorsDbContext : DbContext
+    public class DataDbContext : DbContext
     {
-        public DoctorsDbContext() : base("DefaultConnection")
+        public DataDbContext() : base("DefaultConnection")
         {
 
         }
         public DbSet<Doctors> Doctors { get; set; }
         public DbSet<Patients> Patients { get; set; }
+        public DbSet<diseaseData> Diseases { get; set; }
+        public DbSet<Appointments> Appointments { get; set; }
     }
    /* public class IdentityManager
     {
