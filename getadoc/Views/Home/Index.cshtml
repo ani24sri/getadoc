@@ -20,27 +20,10 @@
             <br />
             <br />
             <div class="col-md-3 col-md-offset-4">
-                @using (Ajax.BeginForm(
-                new AjaxOptions
-                {
-                    HttpMethod = "post",
-                    InsertionMode = InsertionMode.InsertAfter,
-                    Url = "~/Account/Login.cshtml?role=doctor"
-                }))
-                {
-                @Html.ActionLink("Doctors", actionName: "Login", controllerName: "Account", routeValues: null, htmlAttributes: new { @id = "docs", @class = "btn btn-block btn-info btn-lg" })
+                
+                @Html.ActionLink("Doctors", actionName: "Login", controllerName: "Account", routeValues:null, htmlAttributes: new { @id = "docs", @class = "btn btn-block btn-info btn-lg" })
                
-                }
-                            @using (Ajax.BeginForm(
-                            new AjaxOptions
-                            {
-                                HttpMethod = "post",
-                                InsertionMode = InsertionMode.InsertAfter,
-                                Url = "~/Account/Login.cshtml?role=patient"
-                            }))
-{
                 @Html.ActionLink("Patients", actionName: "Login", controllerName: "Account", routeValues: null, htmlAttributes: new { @id = "pats", @class = "btn btn-block btn-warning btn-lg" })
-                }
             </div>
         </div>
     </div>

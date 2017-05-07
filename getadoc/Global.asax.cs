@@ -18,7 +18,7 @@ namespace getadoc
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-            Database.SetInitializer<DataDbContext>(new DropCreateDatabaseAlways<DataDbContext>());
+            //Database.SetInitializer<DataDbContext>(new DropCreateDatabaseAlways<DataDbContext>());
         }
     }
 }

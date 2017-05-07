@@ -65,6 +65,10 @@ namespace getadoc.Models
     public class RegisterViewModel
     {
         [Required]
+        [Display(Name ="Identity")]
+        public string identity { get; set; }
+
+        [Required]
         [EmailAddress]
         [Display(Name = "Email")]
         public string Email { get; set; }
@@ -80,6 +84,7 @@ namespace getadoc.Models
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
     }
+
 
     public class ResetPasswordViewModel
     {
