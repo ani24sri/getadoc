@@ -1,6 +1,7 @@
 ﻿
 @{
-    Layout = null;
+    Layout = "~/Views/Shared/_layout.cshtml";
+    ViewBag.Title = "Welcome";
 }
 
 <!DOCTYPE html>
@@ -8,7 +9,7 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Welcome to SH Hospitals</title>
+    <title>@ViewBag.Title</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
@@ -19,13 +20,15 @@
             <br />
             <br />
             <br />
-            <div class="col-md-3 col-md-offset-4">
-                
-                @Html.ActionLink("Doctors", actionName: "Login", controllerName: "Account", routeValues:null, htmlAttributes: new { @id = "docs", @class = "btn btn-block btn-info btn-lg" })
-               
-                @Html.ActionLink("Patients", actionName: "Login", controllerName: "Account", routeValues: null, htmlAttributes: new { @id = "pats", @class = "btn btn-block btn-warning btn-lg" })
-            </div>
-        </div>
+                <div class="jumbotron">
+                    <h1>Hello, Welcome to our ERP system</h1>
+                    <p>Begin by choosing your authentication system. Designed using ASP.Net Identity 2.0 and ASP.Net MVC 5</p>
+                    <p>@Html.ActionLink("Doctors", actionName: "Login", controllerName: "Account", routeValues: null, htmlAttributes: new { @class = "btn btn-block btn-info btn-lg" })
+
+                    @Html.ActionLink("Patients", actionName: "Login", controllerName: "Account", routeValues: null, htmlAttributes: new {  @class = "btn btn-block btn-warning btn-lg" })
+</p>
+                </div>
+               </div>
     </div>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")

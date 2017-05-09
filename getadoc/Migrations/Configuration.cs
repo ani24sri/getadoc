@@ -19,7 +19,7 @@ namespace getadoc.Migrations
 
         protected override void Seed(ApplicationDbContext context)
         {
-           if(!context.Users.Any(u => u.Email=="abc@xyz.in"))
+            /*if(!context.Users.Any(u => u.Email=="abc@xyz.in"))
             {
                 var store = new UserStore<ApplicationUser>(context);
                 var manager = new UserManager<ApplicationUser>(store);
@@ -29,7 +29,7 @@ namespace getadoc.Migrations
                 rolemanager.Create(new IdentityRole { Name = "admin" });
                 manager.Create(user, "ABC!@#123");
                 manager.AddToRole(user.Email, "admin");
-            }
+            }*/
         }
     }
 }

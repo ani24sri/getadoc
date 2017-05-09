@@ -10,7 +10,7 @@ using getadoc.Models;
 using getadoc.Models.DbContexts;
 
 namespace getadoc.Controllers
-{   
+{   [Authorize(Roles ="Doctors")]
     public class DoctorsController : Controller
     {
         private DataDbContext db = new DataDbContext();

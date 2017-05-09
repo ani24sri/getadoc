@@ -12,6 +12,7 @@ namespace getadoc.Controllers
     [Authorize]
     public class UsersController : Controller
     {
+        
         // GET: Users
         public ActionResult Index()
         {
@@ -55,5 +56,6 @@ namespace getadoc.Controllers
             }
             return false;
         }
+       
     }
 }

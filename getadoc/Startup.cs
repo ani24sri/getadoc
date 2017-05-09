@@ -11,8 +11,8 @@ namespace getadoc
     {
         public void Configuration(IAppBuilder app)
         {
-            ConfigureAuth(app);
             createRolesandUsers();
+            ConfigureAuth(app);
         }
         public void createRolesandUsers()
         {
@@ -27,7 +27,7 @@ namespace getadoc
             {
 
                 // first we create Admin rool   
-                var role = new Microsoft.AspNet.Identity.EntityFramework.IdentityRole();
+                var role = new IdentityRole();
                 role.Name = "Admin";
                 roleManager.Create(role);
 
@@ -35,8 +35,8 @@ namespace getadoc
 
                 var user = new ApplicationUser();
                 user.Email = "abc@xyz.in";
-
-                string userPWD = "ABC!@#123";
+                user.UserName = "abc@xyz.in";
+                string userPWD = "Abc!@#123";
 
                 var chkUser = UserManager.Create(user, userPWD);
 
@@ -51,7 +51,7 @@ namespace getadoc
             // creating Creating Manager role    
             if (!roleManager.RoleExists("Doctors"))
             {
-                var role = new Microsoft.AspNet.Identity.EntityFramework.IdentityRole();
+                var role = new IdentityRole();
                 role.Name = "Doctors";
                 roleManager.Create(role);
 
@@ -60,7 +60,7 @@ namespace getadoc
             // creating Creating Employee role    
             if (!roleManager.RoleExists("Patients"))
             {
-                var role = new Microsoft.AspNet.Identity.EntityFramework.IdentityRole();
+                var role = new IdentityRole();
                 role.Name = "Patients";
                 roleManager.Create(role);
 
