@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using getadoc.Models;
+using System.Net;
 
 namespace getadoc.Controllers
 {
@@ -80,15 +81,7 @@ namespace getadoc.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
-                    if (User.IsInRole("Doctors"))
-                    {
-                        return RedirectToAction("Index", "Doctors");
-                    }
-                    else if (User.IsInRole("Patients"))
-                    {
-                        return RedirectToAction("Index", "Patients");
-                    }
-                    return RedirectToAction(returnUrl);
+                    return RedirectToLocal(returnUrl);
                 case SignInStatus.LockedOut:
                     return View("Lockout");
                 case SignInStatus.RequiresVerification:
