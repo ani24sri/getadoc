@@ -68,12 +68,20 @@ namespace getadoc.Controllers
         {
             if (ModelState.IsValid)
             {
+                patients.patientNo = getUID();
                 db.Patients.Add(patients);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
             return View(patients);
+        }
+
+        private long getUID()
+        {
+            var id = new Patients().id;
+            var random = Math.Asin(635)*id;
+            return (Int64)random;
         }
 
         // GET: Patients/Edit/5

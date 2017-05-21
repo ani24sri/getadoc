@@ -13,20 +13,10 @@
 }
 else
 {
-    <h2>  Welcome <strong>@ViewBag.Name</strong> Please Proceed </h2>   
+    <h2>  Welcome <strong>@ViewBag.Name</strong> Proceed to Application </h2>   
 }  
 
 <br/>
 <br />
-@if (User.Identity.IsAuthenticated)
-{
-    if (User.IsInRole("Doctors"))
-    {
-        @Html.ActionLink("Please Proceed", actionName: "Index", controllerName: "Doctors", routeValues: null, htmlAttributes: new { @class = "btn btn-block btn-info btn-lg" })
-    }
-    else if (User.IsInRole("Patients"))
-    {
-        @Html.ActionLink("Please Proceed", actionName: "Index", controllerName: "Patients", routeValues: null, htmlAttributes: new { @class = "btn btn-block btn-warning btn-lg" })
-    }
-
-}
+ @Html.ActionLink("Please Proceed", actionName: "Index", controllerName: "Home", routeValues: null, htmlAttributes: new { @class = "btn btn-block btn-info btn-lg" })
+   

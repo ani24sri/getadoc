@@ -20,8 +20,7 @@ namespace getadoc.Models
         public int id{ get; set; }
         public string name{ get; set; }
         [Display(Name = "Specialization")]
-        [DisplayFormat(NullDisplayText = "No Speciality")]
-        public speciality? speciality1 { get; set; }
+        public speciality speciality { get; set; }
         public double phoneno { get; set; }
     }
     public class diseaseData
@@ -41,8 +40,11 @@ namespace getadoc.Models
     public class Patients
     {
         public int id { get; set; }
+        [Display(Name = "Your Name")]
         public string name { get; set; }
+        [Display(Name = "Your Symptoms")]
         public string symptoms { get; set; }
+        [Display(Name = "Your Unique ID")]
         public Int64 patientNo { get; set; }
     }
     public class Appointments

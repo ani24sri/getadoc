@@ -196,11 +196,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201704150535509_InitialCreate.cs" />
-    <Compile Include="Migrations\201704150535509_InitialCreate.Designer.cs">
-      <DependentUpon>201704150535509_InitialCreate.cs</DependentUpon>
+    <Compile Include="Helpers\EnumHelpers.cs" />
+    <Compile Include="Migrations\ApplicationDb\Configuration.cs" />
+    <Compile Include="Migrations\DataDb\201705210639212_initial_create.cs" />
+    <Compile Include="Migrations\DataDb\201705210639212_initial_create.Designer.cs">
+      <DependentUpon>201705210639212_initial_create.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Migrations\DataDb\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\DataModels.cs" />
     <Compile Include="Models\DbContexts\DataContexts.cs" />
@@ -345,6 +347,7 @@
     <Content Include="Views\Users\Index.cshtml" />
     <Content Include="Views\Role\Index.cshtml" />
     <Content Include="Views\Role\Create.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Speciality.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -359,12 +362,12 @@
     <Content Include="Scripts\jquery-3.1.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201704150535509_InitialCreate.resx">
-      <DependentUpon>201704150535509_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <EmbeddedResource Include="Migrations\DataDb\201705210639212_initial_create.resx">
+      <DependentUpon>201705210639212_initial_create.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

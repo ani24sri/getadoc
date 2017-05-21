@@ -23,10 +23,20 @@
                 <div class="jumbotron">
                     <h1>Hello, Welcome to our ERP system</h1>
                     <p>Begin by choosing your authentication system. Designed using ASP.Net Identity 2.0 and ASP.Net MVC 5</p>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                    <p>@Html.ActionLink("Doctors", actionName: "Index", controllerName: "Doctors", routeValues: null, htmlAttributes: new { @class = "btn btn-block btn-info btn-lg" })
+
+                    @Html.ActionLink("Patients", actionName: "Index", controllerName: "Patients", routeValues: null, htmlAttributes: new { @class = "btn btn-block btn-warning btn-lg" })
+                    </p>
+                    }
+                    else
+                    {
                     <p>@Html.ActionLink("Doctors", actionName: "Login", controllerName: "Account", routeValues: null, htmlAttributes: new { @class = "btn btn-block btn-info btn-lg" })
 
-                    @Html.ActionLink("Patients", actionName: "Login", controllerName: "Account", routeValues: null, htmlAttributes: new {  @class = "btn btn-block btn-warning btn-lg" })
+                    @Html.ActionLink("Patients", actionName: "Login", controllerName: "Account", routeValues: null, htmlAttributes: new { @class = "btn btn-block btn-warning btn-lg" })
 </p>
+                    }
                 </div>
                </div>
     </div>
