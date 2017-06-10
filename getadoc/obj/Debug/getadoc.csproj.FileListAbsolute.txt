@@ -116,5 +116,5 @@ C:\Users\USER\documents\visual studio 2017\Projects\getaDoc\getadoc\bin\Microsof
 C:\Users\USER\documents\visual studio 2017\Projects\getaDoc\getadoc\obj\Debug\getadoc.dll
 C:\Users\USER\documents\visual studio 2017\Projects\getaDoc\getadoc\obj\Debug\getadoc.pdb
 C:\Users\USER\documents\visual studio 2017\Projects\getaDoc\getadoc\obj\Debug\getadoc.csprojResolveAssemblyReference.cache
-C:\Users\USER\Documents\Visual Studio 2017\Projects\getadoc\getadoc\obj\Debug\getadoc.Migrations.DataDb.initial_create.resources
+C:\Users\USER\Documents\Visual Studio 2017\Projects\getadoc\getadoc\obj\Debug\getadoc.Migrations.DataDb.diseasesChng.resources
 C:\Users\USER\Documents\Visual Studio 2017\Projects\getadoc\getadoc\obj\Debug\getadoc.csproj.GenerateResource.Cache

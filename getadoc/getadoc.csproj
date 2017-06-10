@@ -198,9 +198,9 @@
     </Compile>
     <Compile Include="Helpers\EnumHelpers.cs" />
     <Compile Include="Migrations\ApplicationDb\Configuration.cs" />
-    <Compile Include="Migrations\DataDb\201705210639212_initial_create.cs" />
-    <Compile Include="Migrations\DataDb\201705210639212_initial_create.Designer.cs">
-      <DependentUpon>201705210639212_initial_create.cs</DependentUpon>
+    <Compile Include="Migrations\DataDb\201706091616146_diseasesChng.cs" />
+    <Compile Include="Migrations\DataDb\201706091616146_diseasesChng.Designer.cs">
+      <DependentUpon>201706091616146_diseasesChng.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\DataDb\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -348,6 +348,11 @@
     <Content Include="Views\Role\Index.cshtml" />
     <Content Include="Views\Role\Create.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\Speciality.cshtml" />
+    <Content Include="Views\Patients\Appointments.cshtml" />
+    <Content Include="Views\Doctors\manageAppointments.cshtml" />
+    <Content Include="Views\Doctors\approveAppointments.cshtml" />
+    <Content Include="Views\Doctors\rejectAppointment.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Availibility.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -365,8 +370,8 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\DataDb\201705210639212_initial_create.resx">
-      <DependentUpon>201705210639212_initial_create.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\DataDb\201706091616146_diseasesChng.resx">
+      <DependentUpon>201706091616146_diseasesChng.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

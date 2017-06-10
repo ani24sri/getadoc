@@ -8,7 +8,7 @@ namespace getadoc.Helpers
 {
     public static class EnumHelpers
     {
-        public static IEnumerable<SelectListItem> GetItems(this Type Enumtype , int? selectedValue)
+        public static IEnumerable<SelectListItem> GetItems(this Type Enumtype , string selectedValue)
         {
             if(!typeof(Enum).IsAssignableFrom(Enumtype))
             {
@@ -21,7 +21,7 @@ namespace getadoc.Helpers
                  {
                      Text = name,
                      Value = value.ToString(),
-                     Selected = value == selectedValue
+                     Selected = name == selectedValue
 
                 }
             );

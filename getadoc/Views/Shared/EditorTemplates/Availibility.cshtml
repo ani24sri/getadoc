@@ -1,0 +1,6 @@
+﻿@using getadoc.Models;
+@using getadoc.Helpers;
+@{ 
+    var data = typeof(Availibility).GetItems((string)Model);
+}
+@Html.DropDownList("", data, htmlAttributes: new { @class = "form-control" })

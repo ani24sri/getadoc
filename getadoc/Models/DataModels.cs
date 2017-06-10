@@ -15,6 +15,11 @@ namespace getadoc.Models
         Dermatologist,
         Gastroenterologist
     }
+    public enum Availibility
+    {
+        Available,
+        Unavailable
+    }
     public class Doctors
     {
         public int id{ get; set; }
@@ -36,6 +41,10 @@ namespace getadoc.Models
         public string symptom3 { get; set; }
         [Display(Name = "Fourth Symptom")]
         public string symptom4 { get; set; }
+        [Display(Name = "Description")]
+        public string desc{ get; set; }
+        [Display(Name = "Treatments")]
+        public string cure { get; set; }
     }
     public class Patients
     {
@@ -46,12 +55,17 @@ namespace getadoc.Models
         public string symptoms { get; set; }
         [Display(Name = "Your Unique ID")]
         public Int64 patientNo { get; set; }
+        [Display(Name ="Mobile Number"),Required,RegularExpression("1234567890")]
+        public Int64 phNo { get; set; }
     }
     public class Appointments
     {
         public int id { get; set; }
+        [Display(Name = "Date of Appointment")]
         public DateTime appDate { get; set; }
+        [Display(Name = "Reason of Appointment")]
         public string reason { get; set; }
-        public bool availble{ get; set; }
+        [Display(Name = "Doctor is Available")]
+        public Availibility availble{ get; set; }
     }
 }

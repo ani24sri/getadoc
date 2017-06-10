@@ -36,10 +36,11 @@
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.id },htmlAttributes:new { @class ="btn btn-info"}) |
-            @Html.ActionLink("Details", "Details", new { id=item.id }, htmlAttributes: new { @class = "btn btn-info" }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.id }, htmlAttributes: new { @class = "btn btn-info" })
         </td>
     </tr>
 }
-
 </table>
+<br/>
+@Html.ActionLink("Book an Appointment", actionName: "Appointments", routeValues: null, htmlAttributes: new { @class = "btn btn-info" })
+

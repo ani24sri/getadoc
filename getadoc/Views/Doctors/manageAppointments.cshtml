@@ -1,0 +1,48 @@
+﻿@model IEnumerable<getadoc.Models.Appointments>
+
+@{
+    ViewBag.Title = "manageAppointments";
+}
+
+<h2>Dr. @User.Identity.Name please check your Appointments</h2>
+
+
+   
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.appDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.reason)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.availble)
+        </th>
+        <th></th>
+    </tr>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    foreach (var item in Model)
+    {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.appDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.reason)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.availble)
+        </td>
+        <td>
+            @Html.ActionLink("Modify ", actionName: "approveAppointments", controllerName: "Doctors", routeValues: new { id=item.id }, htmlAttributes: new { @class = "btn btn-info" })
+            @Html.ActionLink("Reject ", actionName: "rejectAppointment", controllerName: "Doctors", routeValues: new { id = item.id }, htmlAttributes: new { @class = "btn btn-info" })
+        </td>
+    </tr>
+}
+}
+
+</table>
+@Html.ActionLink("Back ",actionName:"Index",controllerName:"Doctors",routeValues:null, htmlAttributes:new { @class="btn btn-info"})

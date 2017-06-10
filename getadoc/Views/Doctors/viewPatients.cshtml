@@ -1,5 +1,6 @@
 ﻿@model IEnumerable<getadoc.Models.Patients>
 
+
 @{
     ViewBag.Title = "viewPatients";
 }
@@ -13,8 +14,12 @@
             @Html.DisplayNameFor(model => model.name)
         </th>
         <th>
-            @Html.Label()
+            @Html.DisplayNameFor(model => model.symptoms)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.phNo)
+        </th>
+        <th></th>
     </tr>
 
 @foreach (var item in Model) {
@@ -23,11 +28,16 @@
             @Html.DisplayFor(modelItem => item.name)
         </td>
         <td>
-            @*Html.ActionLink("Edit", "Edit", new { id=item.id }) *@|
-            @Html.ActionLink("Details", "Details", new { id=item.id }, new { @class = "btn btn-info"}) |
-            @*Html.ActionLink("Delete", "Delete", new { id = item.id })*@
+            @Html.DisplayFor(modelItem => item.symptoms)
         </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.phNo)
+        </td>
+        <td> </td>
     </tr>
 }
 
 </table>
+<div class="center-block">
+    @Html.ActionLink("Back to List", "Index",controllerName:"Doctors", routeValues: null, htmlAttributes: new { @class = "btn btn-info" })
+</div>

@@ -27,13 +27,14 @@ namespace getadoc.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Appointments([Bind(Include = "id,patientNo,appDate,reason")]Appointments appointments)
+        [ValidateAntiForgeryToken]
+        public ActionResult Appointments([Bind(Include = "id,appDate,reason")]Appointments appointments)
         {
             if (ModelState.IsValid)
             {
                 db.Appointments.Add(appointments);
                 db.SaveChanges();
-                return View(appointments); 
+                return RedirectToAction("Index"); 
             }
             return View(appointments);
         }
@@ -64,7 +65,7 @@ namespace getadoc.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id,name,paitientNo,symptoms")] Patients patients)
+        public ActionResult Create([Bind(Include = "id,name,paitientNo,symptoms,phNo")] Patients patients)
         {
             if (ModelState.IsValid)
             {
@@ -104,10 +105,11 @@ namespace getadoc.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id,name,paitientNo,symptoms")] Patients patients)
+        public ActionResult Edit([Bind(Include = "id,name,paitientNo,symptoms,phNo")] Patients patients)
         {
             if (ModelState.IsValid)
             {
+                patients.patientNo = getUID();
                 db.Entry(patients).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

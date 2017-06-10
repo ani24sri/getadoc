@@ -40,7 +40,7 @@ namespace getadoc.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult addDiseases([Bind(Include = "id,name,symptom1,symptom2,symptom3,symptom4")]diseaseData data)
+        public ActionResult addDiseases([Bind(Include = "id,name,symptom1,symptom2,symptom3,symptom4,cure,desc")]diseaseData data)
         {
             if (ModelState.IsValid)
             {
@@ -68,7 +68,7 @@ namespace getadoc.Controllers
         // POST
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult editDisease([Bind(Include = "id,name,speciality,phoneno")] diseaseData disease)
+        public ActionResult editDisease([Bind(Include = "id,name,symptom1,symptom2,symptom3,symptom4,cure,desc")] diseaseData disease)
         {
             if (ModelState.IsValid)
             {
@@ -103,7 +103,58 @@ namespace getadoc.Controllers
             db.SaveChanges();
             return RedirectToAction("viewDiseases");
         }
-
+        // GET: Doctors/manageAppointments
+        public ActionResult manageAppointments()
+        {
+            return View(db.Appointments.ToList());
+        }
+        public ActionResult approveAppointments(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Appointments _appt = db.Appointments.Find(id);
+            if (_appt == null)
+            {
+                return HttpNotFound();
+            }
+            return View(_appt);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult approveAppointments([Bind(Include = "id,appDate,reason,availble")]Appointments _appt)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(_appt).State = EntityState.Modified;
+                 db.SaveChanges();
+                return RedirectToAction("manageAppointments");
+            }
+            return View(_appt);
+        }
+        public ActionResult rejectAppointment(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Appointments _apptDel = db.Appointments.Find(id);
+            if (_apptDel == null)
+            {
+                return HttpNotFound();
+            }
+            return View(_apptDel);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult rejectAppointment(int id)
+        {
+            Appointments _apptDel = db.Appointments.Find(id);
+            db.Appointments.Remove(_apptDel);
+            db.SaveChanges();
+            return RedirectToAction("manageAppointments");
+        }
         #endregion
 
 
