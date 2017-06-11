@@ -8,9 +8,10 @@ namespace getadoc.Helpers
 {
     public static class EnumHelpers
     {
-        public static IEnumerable<SelectListItem> GetItems(this Type Enumtype , string selectedValue)
+       
+        public static IEnumerable<SelectListItem> GetItems(this Type Enumtype, int? selectedValue)
         {
-            if(!typeof(Enum).IsAssignableFrom(Enumtype))
+            if (!typeof(Enum).IsAssignableFrom(Enumtype))
             {
                 throw new HttpException("The Type of refenece must be enum");
             }
@@ -21,12 +22,12 @@ namespace getadoc.Helpers
                  {
                      Text = name,
                      Value = value.ToString(),
-                     Selected = name == selectedValue
+                     Selected = value == selectedValue
 
-                }
+                 }
             );
             return items;
         }
-       
+
     }
 }

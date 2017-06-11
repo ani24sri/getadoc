@@ -1,4 +1,4 @@
-﻿@model getadoc.Models.Patients
+﻿@model getadoc.Models.patientsProfile
 
 @{
     ViewBag.Title = "Details";
@@ -25,15 +25,14 @@
             @Html.DisplayFor(model => model.symptoms)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.patientNo)
+            @Html.DisplayNameFor(model => model.phNo)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.patientNo)
+            @Html.DisplayFor(model => model.phNo)
         </dd>
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to List", "Index",null , new { @class = "text-info" })
 </p>

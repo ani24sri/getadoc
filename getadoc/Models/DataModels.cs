@@ -20,6 +20,20 @@ namespace getadoc.Models
         Available,
         Unavailable
     }
+    public enum Rating
+    {
+        Best,
+        Average,
+        Worse
+    }
+    public class feedback
+    {
+        public int id{ get; set; }
+        [Display(Name ="What is the level of our service")]
+        public Rating rate { get; set; }
+        [Display(Name = "Your Feedback")]
+        public string feed { get; set; }
+    }
     public class Doctors
     {
         public int id{ get; set; }
@@ -58,6 +72,16 @@ namespace getadoc.Models
         [Display(Name ="Mobile Number"),Required,RegularExpression("1234567890")]
         public Int64 phNo { get; set; }
     }
+    public class patientsProfile
+    {
+        public int id { get; set; }
+        [Display(Name = "Your Name")]
+        public string name { get; set; }
+        [Display(Name = "Your Status")]
+        public string symptoms { get; set; }
+        [Display(Name = "Mobile Number"), Required, RegularExpression("1234567890")]
+        public Int64 phNo { get; set; }
+    }
     public class Appointments
     {
         public int id { get; set; }
@@ -65,7 +89,7 @@ namespace getadoc.Models
         public DateTime appDate { get; set; }
         [Display(Name = "Reason of Appointment")]
         public string reason { get; set; }
-        [Display(Name = "Doctor is Available")]
+        [Display(Name = "Available Status")]
         public Availibility availble{ get; set; }
     }
 }

@@ -18,16 +18,33 @@ namespace getadoc.Controllers
         // GET: Doctors
         public ActionResult Index()
         {
-            return View(db.Doctors.ToList());
+            var data = from d in db.Doctors
+                           select d;
+            if (data.Where(s => s.name.Contains("Anirudh")) != null)
+            {
+                data = data.Where(s => s.name.Contains("Anirudh"));
+                return View(data);
+            }
+            return View();
         }
 #region outeractions
         // GET: Patients
-
         public ActionResult viewPatients()
         {
             return View(db.Patients.ToList());
         }
-        
+        [HttpPost]
+        public ActionResult viewPatients(string searchString)
+        {
+            var patientsData = from pl in db.Patients
+                               select pl;
+            if(!String.IsNullOrEmpty(searchString))
+            {
+                patientsData = patientsData.Where(s => s.name.Contains(searchString));
+            }
+            return View(patientsData);
+        }
+
         // GET: Diseases
         public ActionResult viewDiseases()
         {

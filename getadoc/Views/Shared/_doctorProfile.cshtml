@@ -26,7 +26,8 @@
                 @Html.DisplayFor(modelItem => item.phoneno)
             </td>
             <td>
-     @Html.ActionLink("Edit your Profile", actionName: "Edit", controllerName: "Doctors", routeValues: new { id=item.id }, htmlAttributes: new { @class = "btn btn-primary navbar text-center" })
+     @Html.ActionLink("Edit your Profile", actionName: "Edit", controllerName: "Doctors", routeValues: new { id=item.id }, htmlAttributes: new { @class = "btn btn-primary navbar text-center" }) |
+                @Html.ActionLink("Delete your Profile", actionName: "Delete", controllerName: "Doctors", routeValues: new { id = item.id }, htmlAttributes: new { @class = "btn btn-primary navbar text-center" })
                 @*Html.ActionLink("Edit", "Edit", new { id = item.id }) |
                 @Html.ActionLink("Delete", "Delete", new { id = item.id })
                 @Html.ActionLink("Details", "Details", new { id = item.id })*@

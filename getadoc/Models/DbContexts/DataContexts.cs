@@ -20,6 +20,8 @@ namespace getadoc.Models.DbContexts
         public DbSet<Patients> Patients { get; set; }
         public DbSet<diseaseData> Diseases { get; set; }
         public DbSet<Appointments> Appointments { get; set; }
+        public DbSet<patientsProfile> profile { get; set; }
+        public DbSet<feedback> feebak { get; set; }
     }
    }
 

@@ -1,0 +1,43 @@
+﻿@model IEnumerable<getadoc.Models.patientsProfile>
+
+@{
+    ViewBag.Title = "profileSettings";
+}
+
+<h2>Customize your Profile</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.symptoms)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.phNo)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.symptoms)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.phNo)
+        </td>
+        <td>
+            @Html.ActionLink("Your Profile", actionName: "Details", controllerName: "Patients", routeValues: new { id = item.id }, htmlAttributes: new { @class = "text-info navbar text-center" }) |
+            @Html.ActionLink("Delete your Profile", actionName: "Delete", controllerName: "Patients", routeValues: new { id = item.id }, htmlAttributes: new { @class = "text-info navbar text-center" })
+
+        </td>
+    </tr>
+}
+
+</table>

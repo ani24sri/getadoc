@@ -7,8 +7,9 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create",routeValues:null,htmlAttributes:new { @class="btn btn-warning"})
-</p>
+    @Html.ActionLink("Add a new Patient", "Create",routeValues:null,htmlAttributes:new { @class="btn btn-info"})
+	@Html.ActionLink("Profile Settings", "patientProfile", routeValues: null, htmlAttributes: new { @class = "btn btn-info" }) 
+    </p>
 <table class="table">
     <tr>
         <th>
@@ -42,5 +43,9 @@
 }
 </table>
 <br/>
-@Html.ActionLink("Book an Appointment", actionName: "Appointments", routeValues: null, htmlAttributes: new { @class = "btn btn-info" })
+@Html.ActionLink("Book an Appointment", actionName: "Appointment", routeValues: null, htmlAttributes: new { @class = "btn btn-info" }) |
+@Html.ActionLink("Cancel an Appointment", actionName: "cancelAppointment", routeValues: null, htmlAttributes: new { @class = "btn btn-info" }) |
+@Html.ActionLink("Types of Diseases", actionName: "viewDiseases", routeValues: null, htmlAttributes: new { @class = "btn btn-info" }) |
+@Html.ActionLink("Find A Doctor", actionName: "connectDoctor", routeValues: null, htmlAttributes: new { @class = "btn btn-info" }) |
 
+@Html.ActionLink("Feedback", actionName: "feedback", routeValues: null, htmlAttributes: new { @class = "btn btn-danger" }) 

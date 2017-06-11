@@ -198,9 +198,9 @@
     </Compile>
     <Compile Include="Helpers\EnumHelpers.cs" />
     <Compile Include="Migrations\ApplicationDb\Configuration.cs" />
-    <Compile Include="Migrations\DataDb\201706091616146_diseasesChng.cs" />
-    <Compile Include="Migrations\DataDb\201706091616146_diseasesChng.Designer.cs">
-      <DependentUpon>201706091616146_diseasesChng.cs</DependentUpon>
+    <Compile Include="Migrations\DataDb\201706111250134_new.cs" />
+    <Compile Include="Migrations\DataDb\201706111250134_new.Designer.cs">
+      <DependentUpon>201706111250134_new.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\DataDb\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -353,6 +353,15 @@
     <Content Include="Views\Doctors\approveAppointments.cshtml" />
     <Content Include="Views\Doctors\rejectAppointment.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\Availibility.cshtml" />
+    <Content Include="Views\Patients\viewDiseases.cshtml" />
+    <Content Include="Views\Patients\patientProfile.cshtml" />
+    <Content Include="Views\Patients\diseaseDetails.cshtml" />
+    <Content Include="Views\Patients\profileSettings.cshtml" />
+    <Content Include="Views\Patients\editProfile.cshtml" />
+    <Content Include="Views\Patients\cancelAppointment.cshtml" />
+    <Content Include="Views\Patients\connectDoctor.cshtml" />
+    <Content Include="Views\Patients\feedback.cshtml" />
+    <Content Include="Views\Patients\thanks.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -370,8 +379,8 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\DataDb\201706091616146_diseasesChng.resx">
-      <DependentUpon>201706091616146_diseasesChng.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\DataDb\201706111250134_new.resx">
+      <DependentUpon>201706111250134_new.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
